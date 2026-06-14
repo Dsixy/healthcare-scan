@@ -1,6 +1,8 @@
 import { Activity, Camera, ChevronDown, Shield } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CoverBanner } from '../components/CoverBanner'
+import { SITE_TAGLINE, SITE_TITLE } from '../config/site'
 import type { Gender, UserProfile } from '../types/profile'
 import { DEFAULT_PROFILE } from '../types/profile'
 import { compressImage, readFileAsDataUrl, saveProfile } from '../lib/storage'
@@ -43,15 +45,11 @@ export function HomePage() {
   return (
     <div className="mx-auto flex min-h-dvh max-w-lg flex-col px-5 py-8">
       <div className="flex-1">
-        <div className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <img
-            src="/og.png"
-            alt="HealthScan Pro AI 全身体检"
-            className="h-36 w-full object-cover sm:h-44"
-          />
-          <div className="px-4 py-3 text-center">
-            <h1 className="font-heading text-xl font-bold text-primary-800">HealthScan Pro</h1>
-            <p className="mt-0.5 text-sm text-slate-600">AI 全身体检 · 3 分钟出报告</p>
+        <div className="mb-6">
+          <CoverBanner />
+          <div className="mt-3 text-center">
+            <h1 className="font-heading text-xl font-bold text-primary-800">{SITE_TITLE}</h1>
+            <p className="mt-0.5 text-sm text-slate-600">{SITE_TAGLINE}</p>
           </div>
         </div>
 

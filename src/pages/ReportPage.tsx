@@ -2,6 +2,7 @@ import html2canvas from 'html2canvas'
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ReportView } from '../components/ReportView'
+import { INSTITUTION, PUBLIC_SITE_URL } from '../config/site'
 import { loadReport } from '../lib/storage'
 
 export function ReportPage() {
@@ -36,7 +37,7 @@ export function ReportPage() {
         logging: false,
       })
       const link = document.createElement('a')
-      link.download = `HealthScan-${report!.meta.id}.png`
+      link.download = `FuJian-${report!.meta.id}.png`
       link.href = canvas.toDataURL('image/png')
       link.click()
     } catch {
@@ -51,9 +52,9 @@ export function ReportPage() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'HealthScan Pro 体检报告',
-          text: `我的 AI 全身体检报告已出，编号 ${report.meta.id}`,
-          url: window.location.origin,
+          title: `${INSTITUTION} 体检报告`,
+          text: `体检报告已出，编号 ${report.meta.id}`,
+          url: PUBLIC_SITE_URL,
         })
         return
       } catch {

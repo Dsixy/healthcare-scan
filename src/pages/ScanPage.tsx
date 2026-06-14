@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { DEVICE_NAME, INSTITUTION } from '../config/site'
 import { generateReportFromPhoto } from '../lib/generateReport'
 import { loadPhoto, loadProfile, saveSession } from '../lib/storage'
 import type { UserProfile } from '../types/profile'
@@ -82,8 +83,8 @@ export function ScanPage() {
   return (
     <div className="mx-auto flex min-h-dvh max-w-lg flex-col px-5 py-8">
       <div className="mb-6 text-center">
-        <h1 className="text-lg font-semibold text-primary-700">AI 分析中</h1>
-        <p className="mt-1 text-xs text-slate-500">HealthScan Pro v3.2</p>
+        <h1 className="text-lg font-semibold text-primary-700">智能分析中</h1>
+        <p className="mt-1 text-xs text-slate-500">{INSTITUTION} · {DEVICE_NAME}</p>
       </div>
 
       <div className="relative mx-auto mb-8 aspect-square w-full max-w-xs overflow-hidden rounded-2xl border-2 border-primary-200 bg-slate-900 shadow-lg">

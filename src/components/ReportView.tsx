@@ -26,7 +26,7 @@ export function ReportView({ report, id = 'report-content' }: ReportViewProps) {
       patient: true,
     }
     for (const mod of modules) {
-      state[mod.id] = mod.highlight ?? false
+      state[mod.id] = false
     }
     return state
   }, [modules])
@@ -190,14 +190,7 @@ export function ReportView({ report, id = 'report-content' }: ReportViewProps) {
             </h4>
             <ol className="space-y-1.5">
               {meta.positiveFindings.map((item, i) => (
-                <li
-                  key={item}
-                  className={`flex gap-2 text-xs leading-relaxed ${
-                    item.includes('认知') || item.includes('智力')
-                      ? 'font-medium text-red-700'
-                      : 'text-slate-700'
-                  }`}
-                >
+                <li key={item} className="flex gap-2 text-xs leading-relaxed text-slate-700">
                   <span className="shrink-0 font-mono text-slate-400">{i + 1}.</span>
                   {item}
                 </li>

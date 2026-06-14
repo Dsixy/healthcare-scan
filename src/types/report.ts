@@ -65,13 +65,13 @@ export const STATUS_LABELS: Record<Status, string> = {
 export const STATUS_COLORS: Record<Status, string> = {
   normal: 'text-emerald-700',
   attention: 'text-amber-700',
-  'mild-impairment': 'text-red-700 font-semibold',
+  'mild-impairment': 'text-amber-800',
 }
 
 export const STATUS_BG: Record<Status, string> = {
   normal: 'bg-emerald-50',
   attention: 'bg-amber-50',
-  'mild-impairment': 'bg-red-50',
+  'mild-impairment': 'bg-amber-50',
 }
 
 export const TREND_SYMBOL: Record<Trend, string> = {
